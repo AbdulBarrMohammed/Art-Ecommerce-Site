@@ -1,0 +1,394 @@
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+body {
+    height: 100vh;
+}
+
+button:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+
+.search, .cart {
+    height: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+/* NAV SECTION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+
+    padding: 30px 40px;
+    background-color: white;
+    z-index: 1;
+    border-bottom: 1px solid rgb(232, 232, 234);
+
+}
+.nav_links li::after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: black;
+    display: block;
+    opacity: 0;
+    margin-top: 5px;
+    transition: all 0.2s;
+    pointer-events: none;
+
+}
+
+.nav_links li:hover::after {
+    opacity: 1;
+}
+
+.nav_links li:hover {
+    cursor: pointer;
+}
+
+.blue {
+    color: #3981F7;
+    font-size: 2.5rem;
+}
+.red {
+    color: red;
+    font-size: 2.5rem;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+/* HOME SECTION */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    background-image: url('images/jess-bailey-l3N9Q27zULw-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 50px  0;
+    align-items: center;
+    height: 80vh;
+    color: black;
+    gap: 10px;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 0 20%;
+
+}
+
+h2 {
+    font-size: 2.3rem;
+    font-weight: bolder;
+}
+
+.home p {
+    font-size: 1.2rem;
+    line-height: 30px;
+}
+
+button {
+    padding: 20px 40px;
+    border: none;
+    background-color: #3981F7;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    border-radius: 2px;
+
+}
+
+.home-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    line-height: 35px;
+}
+
+/* SLIDER SECTION */
+
+.carousel {
+    padding: 3rem 5rem;
+    width: 100vw;
+    text-align: center;
+
+
+}
+
+.carousel h2 {
+    margin-bottom: 20px;
+}
+.card {
+    height: 420px;
+    padding: 10px;
+
+}
+
+.card p {
+    text-align: center;
+
+}
+
+.slick-slide div {
+    margin: 0 1rem;
+}
+
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: black; /* Change the arrow color to black */
+
+}
+
+.slick-dots li.slick-active button:before {
+    color: black !important;
+
+}
+
+.slick-dots li button:before {
+    color: black !important;
+    font-size: 2rem !important;
+    top: 2rem !important;
+    padding-bottom: 30px;
+}
+
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    padding-bottom: 5px;
+}
+
+.card-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+
+}
+
+.price {
+    color: red;
+    font-size: 1.75rem;
+    font-weight: bold;
+
+}
+
+.description {
+    font-size: 0.9rem;
+    padding: 5px;
+    padding-bottom: 10px;
+
+}
+
+.card button {
+    padding: 15px 30px;
+
+
+}
+
+.top-card {
+    color: red;
+    font-weight: 500;
+
+}
+
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding: 50px;
+    border-top: 1px solid rgb(210, 206, 206);
+}
+
+.top-footer h3 {
+    font-size: 1.7rem;
+}
+
+.top-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.help-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.help-section p {
+    font-size: 1.2rem;
+    color: gray;
+}
+
+
+/* STORE PRODUCTS SECTION */
+.store-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 30px;
+
+}
+.product-items-title {
+    margin-left: 50px;
+}
+.sidebar {
+    border-right: 1px solid rgb(232, 232, 234);;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+}
+.items-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.product-card {
+    width: 325px;
+    overflow: hidden;
+
+    margin: 15px;
+
+}
+
+.heart {
+    height: 30px;
+    width: 30px;
+    position: relative; /* Add this line */
+    top: -300px; /* Adjust as needed */
+    right: -270px; /* Adjust as needed */
+    z-index: 1;
+}
+
+
+.product-card .prod-img {
+    width: 100%;
+    height: auto;
+    background-position: center;
+    object-fit: contain;
+}
+
+.product-card-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+
+}
+
+.product-card-bottom p {
+    font-size: 1.1rem;
+}
+
+.product-card-bottom span {
+    font-size: 1.3rem;
+    color: #3981F7;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+
+/* Selected product */
+
+.selected-product-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.selected-product-container img {
+    height: 500px;
+    max-width: 100%;
+
+    background-position: center;
+    object-fit: contain;
+
+}
+
+.selected-product-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.selected-product-right {
+    font-size: 1.2rem;
+}
+
+.selected-product-description {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.price.product {
+    color: #3981F7;
+}
+
+.selected-product-description p:first-child {
+    font-weight: bold;
+}
+
+.review-line {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.rating-box {
+    padding: 2px;
+    border: 1px solid gray;
+}
