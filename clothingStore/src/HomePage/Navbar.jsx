@@ -1,5 +1,5 @@
-import magnify from './images/magnify.svg';
-import cart from './images/cart.svg';
+import magnify from '../images/magnify.svg';
+import cart from '../images/cart.svg';
 import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
@@ -15,7 +15,9 @@ export const Navbar = () => {
                 <li>
                     <Link to="/">Home</Link>
                 </li>
-                <li><img src={magnify} className="search"/></li>
+                <li><Link to="/Likes"><img src={magnify} className="search"/></Link>
+
+                </li>
                 <li><Link to="/Cart"> <img src={cart} className="cart" /></Link></li>
             </ul>
 

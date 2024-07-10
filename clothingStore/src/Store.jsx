@@ -1,20 +1,19 @@
 
 import { Product } from './Product'
-import { Link, NavLink } from "react-router-dom";
 import { useState } from 'react'
-import { coloredPencilsData } from './data/product-data'
-import { markersData } from './data/product-data';
+import { coloredPencilsData, paintbrushData, markersData, paintData } from './data/product-data'
 
-export const Store = () => {
+
+export const Store = ({cart, setCart, likes, setLikes}) => {
     // State to check when side options are clicked
     const [paintActive, setPaintActive] = useState(false);
     const [paintBrushActive, setPaintBrushActive] = useState(false);
     const [coloredPencilActive, setColoredPencilActive] = useState(false);
     const [markersActive, setMarkersActive] = useState(false);
 
+
     // Functions to set each option active
     function paintClicked() {
-        console.log('paint clicked');
         setPaintActive(true);
         setMarkersActive(false);
         setColoredPencilActive(false);
@@ -22,27 +21,23 @@ export const Store = () => {
     }
 
     function coloredPencilsClicked() {
-        console.log('colored pencil clicked');
         setPaintActive(false);
         setMarkersActive(false);
         setColoredPencilActive(true);
         setPaintBrushActive(false);
     }
     function paintBrushClicked() {
-        console.log('colored pencil clicked');
         setPaintActive(false);
         setMarkersActive(false);
         setColoredPencilActive(false);
         setPaintBrushActive(true);
     }
     function markersClicked() {
-        console.log('colored pencil clicked');
         setPaintActive(false);
         setMarkersActive(true);
         setColoredPencilActive(false);
         setPaintBrushActive(false);
     }
-
 
 
     return (
@@ -60,17 +55,27 @@ export const Store = () => {
 
 
                         {coloredPencilActive && coloredPencilsData.map(data => (
-                            <Link key={data.id} to={`/Store/product/${data.id}`}>
-                                <Product title={data.name} price={data.price} image={data.imageurl}/>
-                            </Link>
+                                <Product id={data.id} title={data.name} price={data.price} image={data.imageurl} likes={likes} setLikes={setLikes} data={data} cart={cart} setCart={setCart}/>
+
                         ))}
 
                         {markersActive && markersData.map(data => (
-                            <Link key={data.id} to={`/Store/product/${data.id}`}>
-                                <Product title={data.name} price={data.price} image={data.imageurl}/>
-                            </Link>
+
+                                <Product id={data.id} title={data.name} price={data.price} image={data.imageurl} likes={likes} setLikes={setLikes} data={data} cart={cart} setCart={setCart}/>
+
                         ))}
 
+                        {paintActive && paintData.map(data => (
+
+                            <Product id={data.id} title={data.name} price={data.price} image={data.imageurl} likes={likes} setLikes={setLikes} data={data} cart={cart} setCart={setCart}/>
+
+                        ))}
+
+                        {paintBrushActive && paintbrushData.map(data => (
+
+                            <Product id={data.id} title={data.name} price={data.price} image={data.imageurl} likes={likes} setLikes={setLikes} data={data} cart={cart} setCart={setCart}/>
+
+                        ))}
 
                     </div>
                 </div>

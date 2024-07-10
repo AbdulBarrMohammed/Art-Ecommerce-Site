@@ -35,32 +35,20 @@ nav {
     font-weight: bold;
     position: sticky;
     top: 0;
-
     padding: 30px 40px;
     background-color: white;
     z-index: 1;
     border-bottom: 1px solid rgb(232, 232, 234);
 
 }
-.nav_links li::after {
-    content: '';
-    height: 2px;
-    width: 100%;
-    background: black;
-    display: block;
-    opacity: 0;
-    margin-top: 5px;
-    transition: all 0.2s;
-    pointer-events: none;
-
-}
-
-.nav_links li:hover::after {
-    opacity: 1;
-}
 
 .nav_links li:hover {
+    opacity: 0.5;
     cursor: pointer;
+}
+
+.nav_links li {
+    transition: opacity 0.3s ease;
 }
 
 .blue {
@@ -269,11 +257,26 @@ button {
 }
 .product-items-title {
     margin-left: 50px;
+    font-size: 1.5rem;
 }
 .sidebar {
-    border-right: 1px solid rgb(232, 232, 234);;
+    border-right: 1px solid rgb(232, 232, 234);
+
+}
+.sidebar p {
+    font-size: 1.3rem;
+    transition: opacity 0.3s ease;
 }
 
+.sidebar p:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.sidebar h3 {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
 .sidebar ul {
     display: flex;
     flex-direction: column;
@@ -306,7 +309,7 @@ button {
     width: 100%;
     height: auto;
     background-position: center;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .product-card-bottom {
