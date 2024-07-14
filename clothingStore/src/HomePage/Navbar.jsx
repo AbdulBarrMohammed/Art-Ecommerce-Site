@@ -1,8 +1,20 @@
 import magnify from '../images/magnify.svg';
-import cart from '../images/cart.svg';
+import cartImg from '../images/cart.svg';
+import heart from '../images/heart-outline.svg';
 import { Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
-export const Navbar = () => {
+export const Navbar = ({ cart }) => {
+    const [showCounter, setShowCounter] = useState(false);
+    useEffect(() => {
+        if (cart.length > 0) {
+            setShowCounter(true);
+        }
+        else {
+            setShowCounter(false);
+        }
+    }, [cart]);
+
     return (
         <nav>
 
@@ -15,10 +27,13 @@ export const Navbar = () => {
                 <li>
                     <Link to="/">Home</Link>
                 </li>
-                <li><Link to="/Likes"><img src={magnify} className="search"/></Link>
+                <li><Link to="/Likes"><img src={heart} className="search"/></Link>
 
                 </li>
-                <li><Link to="/Cart"> <img src={cart} className="cart" /></Link></li>
+                <li><Link to="/Cart">
+                    { showCounter && <span className='cart-count'>{cart.length}</span> }
+                    <img src={cartImg} className="cart" />
+                </Link></li>
             </ul>
 
 

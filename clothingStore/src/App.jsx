@@ -11,13 +11,14 @@ import { SelectedProduct } from './SelectedProduct'
 
 
 
+
 function App() {
    const [cart,  setCart] = useState([]);
    const [likes, setLikes] = useState([]);
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={cart}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Store" element={<Store cart={cart} setCart={setCart} likes={likes} setLikes={setLikes}/>} />

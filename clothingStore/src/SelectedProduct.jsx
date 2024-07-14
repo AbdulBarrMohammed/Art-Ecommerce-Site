@@ -6,6 +6,21 @@ export const SelectedProduct = ({cart, setCart}) => {
     const {productid} = useParams();
 
     const [productData, setProductData] = useState(null);
+    const [qtyNum, setQtyNum] = useState(1);
+    const [currPrice, setCurrPrice] = useState(0);
+
+    const addQty = () => {
+        event.preventDefault();
+        setQtyNum(qtyNum + 1);
+    };
+
+    const subtractQty = () => {
+        event.preventDefault();
+        if (qtyNum > 1) {
+            setQtyNum(qtyNum - 1);
+        }
+
+    }
 
     useEffect(() => {
         let data = null;
@@ -18,12 +33,17 @@ export const SelectedProduct = ({cart, setCart}) => {
         } else if (productid.includes('p')) {
             data = paintData.find(item => item.id === productid);
         }
+
+        const strPrice = data.price;
+        setCurrPrice(parseFloat(strPrice.replace("$", "")))
         setProductData(data);
     }, [productid]);
 
     const addToCart = () => {
         event.preventDefault();
-        setCart([...cart, productData]);
+        const subTotalNum = currPrice * qtyNum;
+        const product = { ...productData, qty: qtyNum, subTotal: subTotalNum };
+        setCart([...cart, product]);
 
     };
 
@@ -60,7 +80,13 @@ export const SelectedProduct = ({cart, setCart}) => {
 
 
                 <form>
+
                     <button onClick={(event) => addToCart(event)}>Add to Cart</button>
+                    <div className="qty-container">
+                        <button onClick={(event) => subtractQty(event)}>-</button>
+                        <p>{qtyNum} </p>
+                        <button onClick={(event) => addQty(event)}>+</button>
+                    </div>
                 </form>
 
 

@@ -38,6 +38,12 @@ export const Footer = () => {
                     <p>Terms Of Use</p>
                 </div>
             </div>
+            <div className="bottom-footer">
+                <p>ArtDepot.com</p>
+                <p>Copyright 2024 Barr Mohammed</p>
+            </div>
+
         </div>
+
     )
 }

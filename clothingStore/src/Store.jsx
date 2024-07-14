@@ -1,7 +1,7 @@
 
 import { Product } from './Product'
 import { useState } from 'react'
-import { coloredPencilsData, paintbrushData, markersData, paintData } from './data/product-data'
+import { coloredPencilsData, paintbrushData, markersData, paintData, productData} from './data/product-data'
 
 
 export const Store = ({cart, setCart, likes, setLikes}) => {
@@ -10,6 +10,10 @@ export const Store = ({cart, setCart, likes, setLikes}) => {
     const [paintBrushActive, setPaintBrushActive] = useState(false);
     const [coloredPencilActive, setColoredPencilActive] = useState(false);
     const [markersActive, setMarkersActive] = useState(false);
+    const [allProd, setAllProd] = useState(true);
+
+    // Flatten the productData array
+    const allProducts = productData.flat();
 
 
     // Functions to set each option active
@@ -18,6 +22,7 @@ export const Store = ({cart, setCart, likes, setLikes}) => {
         setMarkersActive(false);
         setColoredPencilActive(false);
         setPaintBrushActive(false);
+        setAllProd(false);
     }
 
     function coloredPencilsClicked() {
@@ -25,18 +30,21 @@ export const Store = ({cart, setCart, likes, setLikes}) => {
         setMarkersActive(false);
         setColoredPencilActive(true);
         setPaintBrushActive(false);
+        setAllProd(false);
     }
     function paintBrushClicked() {
         setPaintActive(false);
         setMarkersActive(false);
         setColoredPencilActive(false);
         setPaintBrushActive(true);
+        setAllProd(false);
     }
     function markersClicked() {
         setPaintActive(false);
         setMarkersActive(true);
         setColoredPencilActive(false);
         setPaintBrushActive(false);
+        setAllProd(false);
     }
 
 
@@ -76,6 +84,23 @@ export const Store = ({cart, setCart, likes, setLikes}) => {
                             <Product id={data.id} title={data.name} price={data.price} image={data.imageurl} likes={likes} setLikes={setLikes} data={data} cart={cart} setCart={setCart}/>
 
                         ))}
+
+
+
+                        {allProd && allProducts.map(data => (
+                                <Product
+                                    key={data.id}
+                                    id={data.id}
+                                    likes={likes}
+                                    setLikes={setLikes}
+                                    data={data}
+                                    image={data.imageurl}
+                                    title={data.name}
+                                    price={data.price}
+                                    cart={cart}
+                                    setCart={setCart}
+                                />
+                            ))}
 
                     </div>
                 </div>
